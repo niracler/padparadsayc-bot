@@ -3,12 +3,13 @@
 . "$(x wsroot)/config"
 
 case "$1" in
-    local)
-        python bot.py "$TOKEN"
+    local)  python bot.py "$TOKEN"                      ;;
+    build)  docker build -t padpar-bot "$(x wsroot)/"   ;;
+    start)
+        # docker rm -f bot
+        docker run -d --restart=always --name=bot  padpar-bot "$TOKEN"
         ;;
-    *)
-        python bot.py "$TOKEN"
-        ;;  
+    *)  echo "Usage: $0 {local|build|start}"            ;;  
 esac
 
 
