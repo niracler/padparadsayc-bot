@@ -2,4 +2,14 @@
 
 . "$(x wsroot)/config"
 
-python bot.py "$TOKEN"
+case "$1" in
+    local)
+        python bot.py "$TOKEN
+        ;;
+    *)
+        python3 bot.py "$TOKEN"
+        ;;  
+esac
+
+
+
