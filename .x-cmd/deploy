@@ -1,0 +1,5 @@
+# shellcheck shell=sh disable=SC1072 #xsh
+
+. "$(x wsroot)/config"
+
+python bot.py "$TOKEN"
