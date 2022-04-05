@@ -4,10 +4,10 @@
 
 case "$1" in
     local)
-        python bot.py "$TOKEN
+        python bot.py "$TOKEN"
         ;;
     *)
-        python3 bot.py "$TOKEN"
+        python bot.py "$TOKEN"
         ;;  
 esac
 
