@@ -9,7 +9,7 @@ git config --global user.email  "$PERSONAL_EMAIL"
 git config --global user.name   "$PERSONAL_NAME"
 
 ssh-add -D
-ssh-add ~/.ssh/id_rsa_niracler
+ssh-add "$PERSONAL_SSH_PATH"
 
 git commit -m "$@"
 git push
@@ -18,4 +18,4 @@ git config --global user.email  "$original_email"
 git config --global user.name   "$original_name"
 
 ssh-add -D
-ssh-add ~/.ssh/id_rsa
+ssh-add "$ORIGINAL_SSH_PATH"
