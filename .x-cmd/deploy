@@ -9,6 +9,11 @@ case "$1" in
         # docker rm -f bot
         docker run -d --restart=always --name=bot  padpar-bot "$TOKEN"
         ;;
+    build_start)
+        x deploy build
+        docker rm -f bot
+        x deploy start
+        ;;
     *)  echo "Usage: $0 {local|build|start}"            ;;  
 esac
 

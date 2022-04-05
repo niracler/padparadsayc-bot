@@ -1,6 +1,9 @@
 import sys
+import logging
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 # Reference: https://github.com/python-telegram-bot/python-telegram-bot/tree/master/examples
 
@@ -30,4 +33,5 @@ if __name__ == '__main__':
 
     updater.start_polling()
     print("Hello world")
+
     updater.idle()
