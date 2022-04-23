@@ -4,7 +4,6 @@ padparadsayc bot
 
 ## Quckstart
 
-
 ```bash
 pip install -r requirements.txt
 python bot.py <TOKEN>
