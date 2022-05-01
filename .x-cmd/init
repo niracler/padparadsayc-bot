@@ -1,0 +1,11 @@
+# shellcheck shell=bash disable=SC1091 #source
+
+x log init bot
+
+# Source the project's config file
+if [ -f "$(x wsroot)/config" ]; then
+    . "$(x wsroot)/config"
+else
+    bot:warn "No config file found, you can create one at $(x wsroot)/config"
+    return 1
+fi

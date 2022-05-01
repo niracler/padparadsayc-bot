@@ -1,0 +1,6 @@
+# shellcheck shell=bash disable=SC1091 #source
+
+(
+    cd "$(x wsroot)"
+    docker build -t padpar-bot -f ".x-cmd/docker/Dockerfile"  "." 
+)

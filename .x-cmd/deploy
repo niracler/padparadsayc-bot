@@ -1,21 +1,10 @@
-# shellcheck shell=sh disable=SC1072 #xsh
+# shellcheck shell=bash disable=SC1091 #source
 
-. "$(x wsroot)/config"
+xws init
+xws build
+docker rm -f bot
+docker run -d --restart=always --name=bot  padpar-bot "$TOKEN"
 
-case "$1" in
-    local)  python bot.py "$TOKEN"                      ;;
-    build)  docker build -t padpar-bot "$(x wsroot)/"   ;;
-    start)
-        # docker rm -f bot
-        docker run -d --restart=always --name=bot  padpar-bot "$TOKEN"
-        ;;
-    build_start)
-        x deploy build
-        docker rm -f bot
-        x deploy start
-        ;;
-    *)  echo "Usage: $0 {local|build|start}"            ;;  
-esac
 
 
 

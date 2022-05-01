@@ -1,0 +1,15 @@
+# shellcheck shell=bash disable=SC1091 #source
+
+xws init
+
+# Install dependencies for the project, use virtualenv 
+if [ -d "$(x wsroot)/venv" ]; then
+    . "$(x wsroot)/venv/bin/activate"
+else 
+    pip install virtualenv
+    virtualenv "$(x wsroot)/venv"
+    . "$(x wsroot)/venv/bin/activate"
+    pip install -r "$(x wsroot)/requirements.txt"
+fi
+
+python bot "$TOKEN"

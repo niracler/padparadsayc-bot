@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt /app/
 RUN pip install -r requirements.txt
 
-COPY entrypoint.sh /app/
-COPY bot.py /app/
+COPY .x-cmd/docker/entrypoint.sh /app/
+COPY bot /app/bot
 
 ENTRYPOINT [ "sh", "./entrypoint.sh" ]
