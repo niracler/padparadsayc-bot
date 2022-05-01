@@ -1,4 +1,3 @@
-import sys
 import logging
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -19,19 +18,12 @@ def echo(update, context):
 def error(update, context):
     print('Update "%s" caused error "%s"', update, context.error)
 
-if __name__ == '__main__':
-    updater = Updater(sys.argv[1], use_context=True)
-
-    dispatcher = updater.dispatcher
-
-    dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("help", help))
-
-    dispatcher.add_handler(MessageHandler(Filters.text, echo))
-
-    dispatcher.add_error_handler(error)
-
+def run(token):
+    updater = Updater(token, use_context=True)
+    dp = updater.dispatcher
+    dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(MessageHandler(Filters.text, echo))
+    dp.add_error_handler(error)
     updater.start_polling()
-    print("Hello world")
-
     updater.idle()
